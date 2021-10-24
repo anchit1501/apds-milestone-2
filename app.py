@@ -30,9 +30,9 @@ app.secret_key = os.urandom(16)
 def index():
     return render_template('home.html')
 
-@app.route('/business')
+@app.route('/accounting')
 def business():
-    return render_template('business.html')
+    return render_template('accounting_finance.html')
 
 @app.route('/entertainment')
 def entertainment():
@@ -75,19 +75,19 @@ def admin():
                 tokenized_data = f_content.split(' ')
 
                 # Load the FastText model
-                bbcFT = FastText.load("bbcFT.model")
-                bbcFT_wv= bbcFT.wv
+                jobadsFT = FastText.load("jobadsFT.model")
+                jobadsFT_wv= jobadsFT.wv
 
                 # Generate vector representation of the tokenized data
-                bbcFT_dvs = gen_docVecs(bbcFT_wv, [tokenized_data])
+                jobadsFT_dvs = gen_docVecs(jobadsFT_wv, [tokenized_data])
 
                 # Load the LR model
-                pkl_filename = "bbcFT_LR.pkl"
+                pkl_filename = "jobadsFT_LR.pkl"
                 with open(pkl_filename, 'rb') as file:
                     model = pickle.load(file)
 
-                # Predict the label of tokenized_data
-                y_pred = model.predict(bbcFT_dvs)
+                # Predict the label  of tokenized_data
+                y_pred = model.predict(jobadsFT_dvs)
                 y_pred = y_pred[0]
 
                 return render_template('admin.html', prediction=y_pred, title=f_title, description=f_content)
@@ -100,10 +100,10 @@ def admin():
                                         title=f_title, description=f_content,
                                         category_flag='Recommended category must not be empty.')
 
-                elif cat_recommend not in ['entertainment', 'business', 'politics', 'sport', 'technology']:
+                elif cat_recommend not in ['Accounting_Finance', 'Engineering', 'Healtcare_Nursing', 'Hospitality_Catering', 'IT', 'PR_Advertising_Marketing', 'Sales', 'Teaching']:
                     return render_template('admin.html', prediction=cat_recommend,
                                         title=f_title, description=f_content,
-                                        category_flag='Recommended category must belong to: entertainment, business, politics, sports, technology.')
+                                        category_flag='Recommended category must belong to: Accounting_Finance, Engineering, Healtcare_Nursing, Hospitality_Catering, IT, PR_Advertising_Marketing or Sales, Teaching.')
 
                 else:
 
