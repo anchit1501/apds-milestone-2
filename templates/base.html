@@ -1,0 +1,40 @@
+<!DOCTYPE html">
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" media="all" />
+<script src="{{ url_for('static', filename='jquery-3.6.0.js') }}"></script>
+</head>
+
+<body>
+
+    <div style="float:right;text-align:left">
+        <form action="/search" method="POST">
+            <input type="text" name="searchword" class="field" />
+            <input type="submit" name="search" value="Search" class="submit" />
+        </form>
+    </div>
+
+    <h1> <a href="/"> BBC News </a></h1>
+
+
+<ul>
+    <li> <a href="/business"> Business </a> </li>
+    <li> <a href="/entertainment"> Entertainment </a> </li>
+    <li> <a href="/politics"> Politics </a> </li>
+    <li> <a href="/sport"> Sport </a> </li>
+    <li> <a href="/technology"> Technology </a> </li>
+    <li> <a href="/about"> About </a> </li>
+    <div class="topnav-right">
+        <li> {% block links %}       {% endblock %} </li>
+    </div>
+</ul>
+
+{% block body %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+</body>
+</html>
+

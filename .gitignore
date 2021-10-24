@@ -1,0 +1,6 @@
+bbcFT_LR.pkl
+bbcFT.model
+bbcFT.model.wv.vectors_ngrams.npy
+
+__pycache__
+static
