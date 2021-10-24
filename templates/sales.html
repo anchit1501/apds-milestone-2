@@ -29,8 +29,11 @@
   $(document).ready(function (){
 
     $.each([
-    "{{ url_for('article', folder='technology', filename='Broadband_steams_ahead_in_the_US') }}",
-    "{{ url_for('article', folder='technology', filename='Mobiles_rack_up_20_years_of_use') }}",
+    "{{ url_for('article', folder='Sales', filename='customer_retention_advisor') }}",
+    "{{ url_for('article', folder='Sales', filename='hospital_contracts_manager') }}",
+    "{{ url_for('article', folder='Sales', filename='it_telesales') }}",
+    "{{ url_for('article', folder='Sales', filename='sales_engineer') }}",
+    "{{ url_for('article', folder='Sales', filename='sales_negotiator_birmingham') }}"
     ], function(i, a){
       $.get(a, function(data){
 

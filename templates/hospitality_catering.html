@@ -8,8 +8,6 @@
 <div id="main">
     <div id="content">
         <div id="category">
-            <h2><span>Accounting Finance</span></h2>
-
             <div>
                 <h3><a id="link-1" href="#"> </a></h3>
                 <p id="data-embed-1"> </p>
@@ -22,10 +20,8 @@
 
         </div>
 
-       
     </div>
 </div>
-
 {% endblock %}
 
 {% block script %}
@@ -33,13 +29,15 @@
   $(document).ready(function (){
 
     $.each([
-    "{{ url_for('article', folder='Accounting_Finance', filename='commercial_finance_analyst') }}",
-    "{{ url_for('article', folder='Accounting_Finance', filename='credit_controller') }}",
-   
+    "{{ url_for('article', folder='Hospitality_Catering', filename='chef_de_partie _all_round_skills') }}",
+    "{{ url_for('article', folder='Hospitality_Catering', filename='chef_de_partie_high_quality_multiOutlet_hotel') }}",
+    "{{ url_for('article', folder='Hospitality_Catering', filename='chef_de_partie_michelin_restaurant') }}",
+    "{{ url_for('article', folder='Hospitality_Catering', filename='leisure_spa_&_golf_manager') }}",
+    "{{ url_for('article', folder='Hospitality_Catering', filename='pastry_demi_chef_de_partie') }}",
     ], function(i, a){
       $.get(a, function(data){
 
-        var shortened = $(data).find('#data-content').text().substring(0, 400);
+        var shortened = $(data).find('#data-content').text().substring(0, 800);
         var title = $(data).find('#data-title').text();
 
         // Embed data into the homepage
@@ -51,4 +49,3 @@
   });
 </script>
 {% endblock %}
-

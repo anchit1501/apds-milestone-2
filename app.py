@@ -30,25 +30,29 @@ app.secret_key = os.urandom(16)
 def index():
     return render_template('home.html')
 
-@app.route('/accounting')
-def business():
+@app.route('/accounting-finance')
+def accounting_finance():
     return render_template('accounting_finance.html')
 
-@app.route('/entertainment')
-def entertainment():
-    return render_template('entertainment.html')
+@app.route('/engineering')
+def engineering():
+    return render_template('engineering.html')
 
-@app.route('/politics')
-def politics():
-    return render_template('politics.html')
+@app.route('/healthcare-nursing')
+def healthcare_nursing():
+    return render_template('healthcare_nursing.html')
 
-@app.route('/sport')
-def sport():
-    return render_template('sport.html')
+@app.route('/hospitality-catering')
+def hospitality_catering():
+    return render_template('hospitality_catering.html')
 
-@app.route('/technology')
-def technology():
-    return render_template('technology.html')
+@app.route('/it')
+def it():
+    return render_template('it.html')
+    
+@app.route('/pr-advertising-marketing')
+def pr_advertising_marketing():
+    return render_template('pr_advertising_marketing.html')    
 
 @app.route('/about')
 def about():

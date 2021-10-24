@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block links %}
+<a href="/login">Login</a>
+{% endblock %}
+
+{% block body %}
+<div id="main">
+  <div id="content">
+    <div id="category">
+      <div>
+        <h3><a id="link-1" href="#"> </a></h3>
+        <p id="data-embed-1"> </p>
+      </div>
+
+      <div>
+        <h3><a id="link-2" href="#"> </a></h3>
+        <p id="data-embed-2"> </p>
+      </div>
+
+      <div>
+        <h3><a id="link-3" href="#"> </a></h3>
+        <p id="data-embed-3"> </p>
+      </div>
+
+      <div>
+        <h3><a id="link-4" href="#"> </a></h3>
+        <p id="data-embed-4"> </p>
+      </div>
+      
+      <div>
+        <h3><a id="link-5" href="#"> </a></h3>
+        <p id="data-embed-5"> </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function () {
+
+    $.each([
+      "{{ url_for('article', folder='Engineering', filename='deep_hole_borer') }}",
+      "{{ url_for('article', folder='Engineering', filename='modelling_and_simulation_analyst') }}",
+      "{{ url_for('article', folder='Engineering', filename='fitter') }}",
+      "{{ url_for('article', folder='Engineering', filename='senior_control_and_instrumentation_engineer') }}",
+      "{{ url_for('article', folder='Engineering', filename='senior_manufacturing_engineer') }}"
+    ], function (i, a) {
+      $.get(a, function (data) {
+
+        var shortened = $(data).find('#data-content').text().substring(0, 800);
+        var title = $(data).find('#data-title').text();
+
+        // Embed data into the homepage
+        $("#data-embed-" + String(i + 1)).text(shortened + '...');
+        $("#link-" + String(i + 1)).text(title);
+      });
+      $("#link-" + String(i + 1)).attr("href", a)
+    });
+  });
+</script>
+{% endblock %}

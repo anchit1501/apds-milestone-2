@@ -29,8 +29,11 @@
   $(document).ready(function (){
 
     $.each([
-    "{{ url_for('article', folder='sport', filename='Fuming_Robinson_blasts_officials') }}",
-    "{{ url_for('article', folder='sport', filename='Spurs_to_sign_Iceland_U21_star') }}",
+    "{{ url_for('article', folder='Healthcare_Nursing', filename='consultant_clinical_psychologist_job_norwich') }}",
+    "{{ url_for('article', folder='Healthcare_Nursing', filename='deputy_nursing_home_manager_job_southampton') }}",
+    "{{ url_for('article', folder='Healthcare_Nursing', filename='idts_nurse_job_norwich') }}",
+    "{{ url_for('article', folder='Healthcare_Nursing', filename='staff_nurse_job_berkshire') }}",
+    "{{ url_for('article', folder='Healthcare_Nursing', filename='support_worker_job_abergavenny') }}"
     ], function(i, a){
       $.get(a, function(data){
 
