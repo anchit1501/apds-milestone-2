@@ -54,6 +54,14 @@ def it():
 def pr_advertising_marketing():
     return render_template('pr_advertising_marketing.html')    
 
+@app.route('/sales')
+def sales():
+    return render_template('sales.html')
+
+@app.route('/teaching')
+def teaching():
+    return render_template('teaching.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
