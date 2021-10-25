@@ -62,9 +62,6 @@ def sales():
 def teaching():
     return render_template('teaching.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 @app.route('/<folder>/<filename>')
 def article(folder, filename):

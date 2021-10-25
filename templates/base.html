@@ -7,8 +7,9 @@
 
 <body>
 
-    <div style="float:right;text-align:left">
-        <form action="/search" method="POST">
+<div id="base">
+    <div style="float:right;text-align:left;">
+        <form id ="searchbox" action="/search" method="POST">
             <input type="text" name="searchword" class="field" />
             <input type="submit" name="search" value="Search" class="submit" />
         </form>
@@ -29,6 +30,7 @@
         <li> {% block links %}       {% endblock %} </li>
     </div>
 </ul>
+</div>
 
 {% block body %}
 {% endblock %}
